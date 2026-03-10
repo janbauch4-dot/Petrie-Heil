@@ -1,0 +1,5 @@
+{
+  "name": "FV Willersdorf/Haid",
+  "description": "Die offizielle Fangbuch-App des Fischereiverein Willersdorf/Haid.",
+  "requestFramePermissions": ["notifications"]
+}
