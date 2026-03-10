@@ -414,6 +414,10 @@ async function startServer() {
     if (!catchItem) return res.status(404).json({ error: "Catch not found" });
 
     // Allow any authenticated user to delete catches as requested
+    if (req.user.role !== 'admin' && catchItem.user_id !== req.user.id) {
+      return res.status(403).json({ error: "Forbidden" });
+    }
+
     // Delete image if exists
     if (catchItem.image_url) {
       const imagePath = path.join(process.cwd(), catchItem.image_url.replace(/^\//, ''));
